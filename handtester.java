@@ -6,7 +6,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		
-		assertEquals(true, swapper.fullHouse("C2","S2","H2","D5","C2"));
+		assertEquals(true, swapper.fullHouse("C2","S2","H2","D5","C5"));
 		assertEquals(false, swapper.fullHouse("C2","S6","H2","D5","C2"));
 	}
 	
@@ -32,6 +32,12 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.flush("C2","S3","H4","D5","C7"));
 	}
 	
+	public void testFourOfAKind()
+	{
+		handSwap swapper = new handSwap();
+		//assertEquals(true, swapper.fourOfAKind("C2","H2","D2","S2","C6"));
+		//assertEquals(false, swapper.fourOfAKind("C2","S3","H4","D5","C7"));
+	}
 	
 	
 }

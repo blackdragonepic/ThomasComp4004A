@@ -55,7 +55,8 @@ public class handSwap {
 		Arrays.sort(rank);
 		for (int i=0;i<4;i++)
 		{
-			if (rank[i]!=rank[i+1]+1)
+
+			if ((rank[i])+1!=rank[i+1])
 				return false;
 		}
 		return true;
