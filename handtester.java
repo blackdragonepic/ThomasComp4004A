@@ -28,8 +28,8 @@ public class handtester extends TestCase {
 	public void flushTester()
 	{
 		handSwap swapper = new handSwap();
-		assertEquals(true, swapper.straightFlush("C2","C3","C4","C5","C6"));
-		assertEquals(false, swapper.straightFlush("C2","S3","H4","D5","C7"));
-		assertEquals(false, swapper.straightFlush("C2","S3","H4","D5","C6"));
+		assertEquals(true, swapper.flush("C2","C3","C4","C5","C6"));
+		assertEquals(false, swapper.flush("C2","S3","H4","D5","C7"));
+		assertEquals(false, swapper.flush("C2","S3","H4","D5","C6"));
 	}
 }
