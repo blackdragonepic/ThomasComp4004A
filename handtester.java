@@ -2,7 +2,7 @@
 
 import junit.framework.TestCase;
 public class handtester extends TestCase {
-	public void fullHouseTester()
+	public void testFullHouse()
 	{
 		handSwap swapper = new handSwap();
 		
@@ -10,14 +10,14 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.fullHouse("C2","S6","H2","D5","C2"));
 	}
 	
-	public void straightTester()
+	public void testStraight()
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.straight("C2","S3","H4","D5","C6"));
 		assertEquals(false, swapper.straight("C2","S3","H4","D5","C7"));
 	}
 	
-	public void straightFlushTester()
+	public void testStraightFlush()
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.straightFlush("C2","C3","C4","C5","C6"));
@@ -25,11 +25,13 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.straightFlush("C2","S3","H4","D5","C6"));
 	}
 	
-	public void flushTester()
+	public void testFlush()
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.flush("C2","C3","C4","C5","C6"));
 		assertEquals(false, swapper.flush("C2","S3","H4","D5","C7"));
-		assertEquals(false, swapper.flush("C2","S3","H4","D5","C6"));
 	}
+	
+	
+	
 }
