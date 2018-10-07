@@ -35,8 +35,8 @@ public class handtester extends TestCase {
 	public void testFourOfAKind()
 	{
 		handSwap swapper = new handSwap();
-		//assertEquals(true, swapper.fourOfAKind("C2","H2","D2","S2","C6"));
-		//assertEquals(false, swapper.fourOfAKind("C2","S3","H4","D5","C7"));
+		assertEquals(true, swapper.fourOfAKind("C2","H2","D2","S2","C6"));
+		assertEquals(false, swapper.fourOfAKind("C2","S3","H4","D5","C7"));
 	}
 	
 	
