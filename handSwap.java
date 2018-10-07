@@ -87,4 +87,30 @@ public class handSwap {
 		return true;
 	}
 	
+	public boolean fourOfAKind(String s1, String s2, String s3, String s4, String s5)
+	{
+		char[] rank = new char[5];
+		rank[0]=s1.charAt(1);
+		rank[1]=s2.charAt(1);
+		rank[2]=s3.charAt(1);
+		rank[3]=s4.charAt(1);
+		rank[4]=s5.charAt(1);
+		int match1=0;
+		for (int i=1;i<5;i++)
+		{
+			if (rank[0]==rank[i])
+				match1++;
+		}
+		if (match1==3)
+			return true;
+		match1=0;
+		for (int i=2;i<5;i++)
+		{
+			if (rank[1]==rank[i])
+				match1++;
+		}
+		if (match1==3)
+			return true;
+		return false;
+	}
 }
