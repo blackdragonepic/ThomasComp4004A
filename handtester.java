@@ -85,7 +85,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.oneAwayStraightFlush("C2","C3","C4","C5","C7"));
-		assertEquals(true, swapper.oneAwayStraightFlush("C2","C3","C4","C5","D6"));
+		assertEquals(false, swapper.oneAwayStraightFlush("C2","C3","C4","C5","D6"));//
 		assertEquals(false, swapper.oneAwayStraightFlush("C2","S3","H4","D5","C7"));
 		assertEquals(false, swapper.oneAwayStraightFlush("C2","S3","H4","D5","C6"));
 	}

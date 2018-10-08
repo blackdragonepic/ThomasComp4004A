@@ -340,7 +340,7 @@ public class handSwap {
 					}
 				}
 				if (highest-lowest<5)
-					return true;
+					return false;
 				else
 					return false;
 			}
