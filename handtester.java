@@ -50,4 +50,12 @@ public class handtester extends TestCase {
 		
 	}
 	
+	public void testRoyalFlush()
+	{
+		handSwap swapper = new handSwap();
+		assertEquals(false, swapper.royalFlush("C2","C3","C4","C5","C6"));
+		assertEquals(false, swapper.royalFlush("C10","SJ","HQ","DK","CA"));
+		assertEquals(true, swapper.royalFlush("H10","HJ","HQ","HK","HA"));
+	}
+	
 }
