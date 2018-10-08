@@ -106,4 +106,29 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.oneAwayFullHouse("C2","S6","H2","D4","C5"));
 	}
 	
+	public void testThreeOfTheSameSuit()
+	{
+		handSwap swapper = new handSwap();
+		
+		assertEquals(true, swapper.threeOfTheSameSuit("C2","S2","H2","D5","C6"));
+		assertEquals(true, swapper.threeOfTheSameSuit("C2","S6","H2","D5","C5"));
+		assertEquals(false, swapper.threeOfTheSameSuit("C2","S6","H2","D4","C5"));
+	}
+	
+	public void testThreeCardsInSequence()
+	{
+		handSwap swapper = new handSwap();
+		
+		assertEquals(true, swapper.threeCardsInSequence("C2","S3","H4","D10","C9"));
+		assertEquals(false, swapper.threeCardsInSequence("C2","S3","H8","D6","C5"));
+		assertEquals(false, swapper.threeCardsInSequence("C2","S3","H4","D7","C6"));
+	}
+	
+	public void testOnePair()
+	{
+		handSwap swapper = new handSwap();
+		
+		assertEquals(true, swapper.onePair("C2","S2","H10","D5","C6"));
+		assertEquals(false, swapper.onePair("C2","S10","H8","D4","C5"));
+	}
 }
