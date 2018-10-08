@@ -152,4 +152,29 @@ public class handSwap {
 	}
 
 	
+	public boolean oneAwayRoyalFlush(String s1, String s2, String s3, String s4, String s5){
+		return true;
+	}
+	
+	public boolean oneAwayFourOfAKind(String s1, String s2, String s3, String s4, String s5){
+		return true;
+	}
+	
+	public boolean oneAwayFlush(String s1, String s2, String s3, String s4, String s5){
+		return true;
+	}
+	
+	public boolean oneAwayStraightFlush(String s1, String s2, String s3, String s4, String s5)
+	{
+		return true;
+	}
+	
+	public boolean oneAwayStraight(String s1, String s2, String s3, String s4, String s5){
+		return true;
+	}
+	
+	public boolean oneAwayFullHouse(String s1, String s2, String s3, String s4, String s5){
+		return true;
+	}
+	
 }
