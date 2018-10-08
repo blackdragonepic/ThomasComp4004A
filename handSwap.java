@@ -114,6 +114,26 @@ public class handSwap {
 		return false;
 	}
 
+	public boolean royalFlush(String s1, String s2, String s3, String s4, String s5){
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		Arrays.sort(rank);
+		for (int i=0;i<5;i++)
+		{
+			if (rank[i]!=(i+10))
+			{
+				return false;
+			}
+		}
+		if (!flush(s1,s2,s3,s4,s5))
+			return false;
+		return true;
+	}
+	
 	public int getRank(String s1)
 	{
 		if (s1.length()==3)
