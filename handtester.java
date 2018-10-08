@@ -38,6 +38,16 @@ public class handtester extends TestCase {
 		assertEquals(true, swapper.fourOfAKind("C2","H2","D2","S2","C6"));
 		assertEquals(false, swapper.fourOfAKind("C2","S3","H4","D5","C7"));
 	}
-	
+	public void testGetRank()
+	{
+		handSwap swapper = new handSwap();
+		assertEquals(14, swapper.getRank("HA"));
+		assertEquals(2, swapper.getRank("C2"));
+		assertEquals(10, swapper.getRank("C10"));
+		assertEquals(11, swapper.getRank("CJ"));
+		assertEquals(12, swapper.getRank("CQ"));
+		assertEquals(13, swapper.getRank("CK"));
+		
+	}
 	
 }
