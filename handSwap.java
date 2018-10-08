@@ -113,4 +113,21 @@ public class handSwap {
 			return true;
 		return false;
 	}
+
+	public int getRank(String s1)
+	{
+		if (s1.length()==3)
+			return 10;
+		if (s1.charAt(1)<58)
+			return s1.charAt(1)-48;
+		if (s1.charAt(1)=='J')
+			return 11;
+		else if (s1.charAt(1)=='Q')
+			return 12;
+		else if (s1.charAt(1)=='K')
+			return 13;
+		else if (s1.charAt(1)=='A')
+			return 14;
+		return -1;
+	}
 }
