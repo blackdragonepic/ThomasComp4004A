@@ -89,12 +89,12 @@ public class handSwap {
 	
 	public boolean fourOfAKind(String s1, String s2, String s3, String s4, String s5)
 	{
-		char[] rank = new char[5];
-		rank[0]=s1.charAt(1);
-		rank[1]=s2.charAt(1);
-		rank[2]=s3.charAt(1);
-		rank[3]=s4.charAt(1);
-		rank[4]=s5.charAt(1);
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
 		int match1=0;
 		for (int i=1;i<5;i++)
 		{
