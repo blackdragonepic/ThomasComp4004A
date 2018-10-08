@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 public class handSwap {
 	public boolean fullHouse(String s1, String s2, String s3, String s4, String s5)
@@ -153,28 +154,302 @@ public class handSwap {
 
 	
 	public boolean oneAwayRoyalFlush(String s1, String s2, String s3, String s4, String s5){
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		char[] suit = new char[5];
+		suit[0]=s1.charAt(0);
+		suit[1]=s2.charAt(0);
+		suit[2]=s3.charAt(0);
+		suit[3]=s4.charAt(0);
+		suit[4]=s5.charAt(0);
+		if (suit[0]==suit[1])
+		{
+			int dif=0;
+			int pos=-1;
+			for (int i=2;i<5;i++)
+			{
+				if (suit[0]!=suit[i]){
+					dif++;
+					pos=i;
+				}
+			}
+			if (dif>1)
+				return false;
+			if (dif==1)
+			{
+				for (int i=0;i<5;i++)
+				{
+					if (i!=pos){
+						if (rank[i]<10)
+							return false;
+					}
+				}
+			}
+			else if (dif==0)
+			{
+				int check=0;
+				for (int i=0;i<5;i++)
+				{
+					if (rank[i]<10)
+						check++;
+				}
+				if (check>1)
+					return false;
+			}
+				
+		}
+		else
+		{
+			if (suit[0]==suit[2])
+			{
+				for (int i=2;i<5;i++)
+				{
+					if (suit[0]!=suit[i])
+					{
+						return false;
+					}
+					if (rank[i]<10)
+						return false;
+				}
+				if (rank[0]<10)
+					return false;
+			}
+			else if (suit[1]==suit[2])
+			{
+				for (int i=1;i<5;i++)
+				{
+					if (suit[1]!=suit[i])
+					{
+						return false;
+					}
+					if (rank[i]<10)
+						return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 		return true;
 	}
 	
 	public boolean oneAwayFourOfAKind(String s1, String s2, String s3, String s4, String s5){
-		return true;
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		int[] ranks=new int[14];
+		for (int i=0;i<5;i++)
+		{
+			ranks[rank[i]-1]++;
+		}
+		for (int i=0;i<14;i++){
+			if (ranks[i]==3) 
+				return true;
+			}
+		return false;
 	}
 	
 	public boolean oneAwayFlush(String s1, String s2, String s3, String s4, String s5){
+		char[] suit = new char[5];
+		suit[0]=s1.charAt(0);
+		suit[1]=s2.charAt(0);
+		suit[2]=s3.charAt(0);
+		suit[3]=s4.charAt(0);
+		suit[4]=s5.charAt(0);
+		int count=0;
+		if (suit[0]==suit[1])
+		{
+			for (int i=2;i<5;i++)
+			{
+				if (suit[0]!=suit[i])
+					count++;
+			}
+			if (count!=1)
+				return false;
+		}
+		else if (suit[0]==suit[2])
+		{
+			for (int i=3;i<5;i++)
+			{
+				if (suit[0]!=suit[i])
+					return false;
+			}
+		}
+		else if (suit[1]==suit[2])
+		{
+			for (int i=3;i<5;i++)
+			{
+				if (suit[1]!=suit[i])
+					return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+		
 		return true;
 	}
 	
 	public boolean oneAwayStraightFlush(String s1, String s2, String s3, String s4, String s5)
 	{
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		char[] suit = new char[5];
+		suit[0]=s1.charAt(0);
+		suit[1]=s2.charAt(0);
+		suit[2]=s3.charAt(0);
+		suit[3]=s4.charAt(0);
+		suit[4]=s5.charAt(0);
+		if (suit[0]==suit[1])
+		{
+			int dif=0;
+			int pos=-1;
+			for (int i=2;i<5;i++)
+			{
+				if (suit[0]!=suit[i]){
+					dif++;
+					pos=i;
+				}
+			}
+			if (dif>1)
+				return false;
+			if (dif==1)
+			{
+				int lowest=20;
+				int highest=-1;
+				for (int i=0;i<5;i++)
+				{
+					if (i!=pos){
+						if (rank[i]<lowest)
+							lowest=rank[i];
+						if (rank[i]>highest)
+							highest=rank[i];
+					}
+				}
+				if (highest-lowest<5)
+					return true;
+				else
+					return false;
+			}
+			else if (dif==0)
+			{
+				Arrays.sort(rank);
+				if (rank[4]-rank[0]<5)
+					return false;
+				else if (rank[3]-rank[0]<5)
+					return true;
+				else if (rank[4]-rank[1]<5)
+					return true;
+				else
+					return false;
+			}
+				
+		}
+		else
+		{
+			if (suit[0]==suit[2])
+			{
+				for (int i=2;i<5;i++)
+				{
+					if (suit[0]!=suit[i])
+					{
+						return false;
+					}
+
+				}
+				Arrays.sort(rank);
+				if (rank[4]-rank[0]<5)
+					return false;
+				else if (rank[3]-rank[0]<5)
+					return true;
+				else if (rank[4]-rank[1]<5)
+					return true;
+				else
+					return false;
+			}
+			else if (suit[1]==suit[2])
+			{
+				for (int i=1;i<5;i++)
+				{
+					if (suit[1]!=suit[i])
+					{
+						return false;
+					}
+					
+				}
+				Arrays.sort(rank);
+				if (rank[4]-rank[0]<5)
+					return false;
+				else if (rank[3]-rank[0]<5)
+					return true;
+				else if (rank[4]-rank[1]<5)
+					return true;
+				else
+					return false;
+			}
+			else
+			{
+				return false;
+			}
+		}
 		return true;
 	}
 	
 	public boolean oneAwayStraight(String s1, String s2, String s3, String s4, String s5){
-		return true;
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		Arrays.sort(rank);
+		if (rank[4]-rank[0]<5)
+			return false;
+		else if (rank[3]-rank[0]<5)
+			return true;
+		else if (rank[4]-rank[1]<5)
+			return true;
+		else
+			return false;
+
 	}
 	
 	public boolean oneAwayFullHouse(String s1, String s2, String s3, String s4, String s5){
-		return true;
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		int two=0;
+		int[] ranks=new int[14];
+		for (int i=0;i<5;i++)
+		{
+			ranks[rank[i]-1]++;
+		}
+		for (int i=0;i<14;i++){
+			if (ranks[i]==3) 
+				return true;
+			else if (ranks[i]==2)
+				two++;
+			}
+		if (two==2)
+			return true;
+		return false;
+
 	}
 	
 }
