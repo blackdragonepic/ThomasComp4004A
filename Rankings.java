@@ -14,6 +14,6 @@ public class Rankings {
 			return 5;
 		if (swapper.straight(s1, s2, s3, s4, s5))
 			return 6;
-		
+		return -1;
 	}
 }
