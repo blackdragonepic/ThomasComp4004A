@@ -30,7 +30,9 @@ public class Rankings {
 		if (rank1==rank2) {
 			if (swapper.royalFlush(hand1[0],hand1[1],hand1[2],hand1[3],hand1[4]))
 			{
-				
+				if (swapper.suitRank(hand1[0])<swapper.suitRank(hand2[0]))
+					return 1;
+				return 0;
 			}
 		}
 		return 0;

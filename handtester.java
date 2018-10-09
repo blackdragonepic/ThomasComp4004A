@@ -214,7 +214,7 @@ public class handtester extends TestCase {
 	public void testWinner(){
 		Rankings rank=new Rankings();
 		String[] hand1=new String[]{"H10","HJ","HQ","HK","HA"};
-		String[] hand2=new String[]{"S10","SJ","SQ","SK","HS"};
+		String[] hand2=new String[]{"S10","SJ","SQ","SK","SA"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 	}
 }
