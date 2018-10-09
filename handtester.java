@@ -213,14 +213,18 @@ public class handtester extends TestCase {
 	
 	public void testWinner(){
 		Rankings rank=new Rankings();
-		String[] hand1=new String[]{"H10","HJ","HQ","HK","HA"};
+		String[] hand1=new String[]{"H10","HJ","HQ","HK","HA"};//royal flush
 		String[] hand2=new String[]{"S10","SJ","SQ","SK","SA"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		hand1=new String[]{"H3","H4","H5","H6","H7"};
 		hand2=new String[]{"S10","SJ","SQ","SK","S9"};
 		assertEquals(1,rank.Winner(hand1,hand2));
-		hand1=new String[]{"H3","H4","H5","H6","H7"};
+		hand1=new String[]{"H3","H4","H5","H6","H7"};//straight flush
 		hand2=new String[]{"S3","S4","S5","S6","S7"};
+		assertEquals(1,rank.Winner(hand1,hand2));
+		
+		hand1=new String[]{"H3","S3","D3","C3","H7"};
+		hand2=new String[]{"H5","S5","D5","C5","D7"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		
 	}
