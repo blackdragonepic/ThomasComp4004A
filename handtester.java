@@ -197,6 +197,7 @@ public class handtester extends TestCase {
 		assertEquals(7, ranker.getRank("C2","S2","H2","D10","CQ"));
 		assertEquals(8, ranker.getRank("C2","S2","H10","D10","CQ"));
 
-		assertEquals(9, ranker.getRank("C2","S2","H11","D10","CQ"));
+		assertEquals(9, ranker.getRank("C2","S2","HJ","D10","CQ"));
+		assertEquals(10, ranker.getRank("C2","S3","HJ","D10","CQ"));
 	}
 }
