@@ -14,6 +14,12 @@ public class Rankings {
 			return 5;
 		if (swapper.straight(s1, s2, s3, s4, s5))
 			return 6;
-		return -1;
+		if (swapper.threeOfAKind(s1, s2, s3, s4, s5))
+			return 7;
+		if (swapper.twoPairs(s1, s2, s3, s4, s5))
+			return 8;
+		if (swapper.onePair(s1, s2, s3, s4, s5))
+			return 9;
+		return 10;
 	}
 }

@@ -177,6 +177,12 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.threeOfAKind("C2","S2","H3","D10","CQ"));
 		
 	}
+	
+	public void testTwoPairs(){
+		handSwap swapper=new handSwap();
+		assertEquals(true, swapper.twoPairs("C2","S2","H10","D10","CQ"));
+		assertEquals(false, swapper.twoPairs("C2","S2","H3","D10","CQ"));
+	}
 	public void testRankings(){
 		Rankings ranker = new Rankings();
 		assertEquals(1, ranker.getRank("H10","HJ","HQ","HK","HA"));

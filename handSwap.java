@@ -277,6 +277,29 @@ public class handSwap {
 		}
 		return false;
 	}
+	
+	public boolean twoPairs(String s1, String s2, String s3, String s4, String s5)
+	{
+		int two=0;
+		int[] rank = new int[5];
+		rank[0]=getRank(s1);
+		rank[1]=getRank(s2);
+		rank[2]=getRank(s3);
+		rank[3]=getRank(s4);
+		rank[4]=getRank(s5);
+		int[] ranks=new int[14];
+		for (int i=0;i<5;i++)
+		{
+			ranks[rank[i]-1]++;
+		}
+		for (int i=0;i<14;i++){
+			if (ranks[i]==2) 
+				two++;
+		}
+		if (two==2)
+			return true;
+		return false;
+	}
 	public boolean oneAwayFlush(String s1, String s2, String s3, String s4, String s5){
 		char[] suit = new char[5];
 		suit[0]=s1.charAt(0);
