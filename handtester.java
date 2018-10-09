@@ -130,4 +130,24 @@ public class handtester extends TestCase {
 		assertEquals(true, swapper.onePair("C2","S2","H10","D5","C6"));
 		assertEquals(false, swapper.onePair("C2","S10","H8","D4","C5"));
 	}
+
+	public void testSwappTester()
+	{
+		handSwap swapper = new handSwap();
+		int[] result=new int[]{0,0,0,0,0};
+		assertEquals(result, swapper.swap("C2","S2","H2","D5","C5"));
+		assertEquals(result, swapper.swap("C2","S3","H4","D5","C6"));
+		assertEquals(result, swapper.swap("C2","C3","C4","C5","C6"));
+		assertEquals(result, swapper.swap("C2","C3","C4","C10","C9"));
+		assertEquals(result, swapper.swap("C2","H2","D2","S2","C6"));
+		assertEquals(result, swapper.swap("H10","HJ","HQ","HK","HA"));
+		
+		result[3]=1;
+		assertEquals(result, swapper.swap("C2","H2","D2","S3","C6"));//one away from 4 of a kind
+		result[3]=0;
+		result[4]=1;
+		assertEquals(result, swapper.swap("H10","HJ","HQ","HK","DA"));
+		result[4]=0;
+	}
+
 }
