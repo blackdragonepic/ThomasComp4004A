@@ -1,5 +1,7 @@
 
 
+import java.util.Arrays;
+
 import junit.framework.TestCase;
 public class handtester extends TestCase {
 	public void testFullHouse()
@@ -71,6 +73,7 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.oneAwayRoyalFlush("C2","C3","C4","C5","C6"));
 		assertEquals(false, swapper.oneAwayRoyalFlush("C10","SJ","HQ","DK","CA"));
 		assertEquals(true, swapper.oneAwayRoyalFlush("H10","HJ","HQ","HK","DA"));
+		
 		assertEquals(true, swapper.oneAwayRoyalFlush("H10","HJ","HQ","HK","H3"));
 	}
 
@@ -94,7 +97,8 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.oneAwayStraight("C2","S3","H4","D5","C7"));
-		assertEquals(false, swapper.oneAwayStraight("C2","S3","H4","D8","C7"));
+		assertEquals(false, swapper.oneAwayStraight("C2","S3","H4","D8","C7"));//swapper.swap("C2","S2","H10","D5","C6")
+		assertEquals(false, swapper.oneAwayStraight("C2","S2","H10","D5","C6"));
 	}
 	
 	public void testOneAwayFullHouse()
@@ -131,23 +135,39 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.onePair("C2","S10","H8","D4","C5"));
 	}
 
-	public void testSwappTester()
+	public void testSwapTester()
 	{
 		handSwap swapper = new handSwap();
 		int[] result=new int[]{0,0,0,0,0};
-		assertEquals(result, swapper.swap("C2","S2","H2","D5","C5"));
-		assertEquals(result, swapper.swap("C2","S3","H4","D5","C6"));
-		assertEquals(result, swapper.swap("C2","C3","C4","C5","C6"));
-		assertEquals(result, swapper.swap("C2","C3","C4","C10","C9"));
-		assertEquals(result, swapper.swap("C2","H2","D2","S2","C6"));
-		assertEquals(result, swapper.swap("H10","HJ","HQ","HK","HA"));
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S2","H2","D5","C5")));
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S3","H4","D5","C6")));
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C5","C6")));
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C10","C9")));
+		assertTrue(Arrays.equals(result, swapper.swap("C2","H2","D2","S2","C6")));
+		assertTrue(Arrays.equals(result, swapper.swap("H10","HJ","HQ","HK","HA")));
 		
 		result[3]=1;
-		assertEquals(result, swapper.swap("C2","H2","D2","S3","C6"));//one away from 4 of a kind
+		//assertTrue(Arrays.equals(result, swapper.swap("C2","H2","D2","S3","C6")));//one away from 4 of a kind
 		result[3]=0;
 		result[4]=1;
-		assertEquals(result, swapper.swap("H10","HJ","HQ","HK","DA"));
-		result[4]=0;
+		assertTrue(Arrays.equals(result, swapper.swap("H10","HJ","HQ","HK","D7")));
+
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C5","H7")));//flush		
+		
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C5","D7")));//straight flush
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S3","H4","D5","C8")));//straight
+
+		result[3]=1;
+
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S2","H2","D5","C6")));//fullhouse
+
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C10","D7","H6")));
+		
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S3","H4","D10","C9")));
+		result[2]=1;
+		assertTrue(Arrays.equals(result, swapper.swap("C2","S2","H10","D5","C6")));
+		assertTrue(Arrays.equals(result, swapper.swap("CQ","SK","H10","D5","C6")));
+		
 	}
 
 }
