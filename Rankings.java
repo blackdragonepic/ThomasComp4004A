@@ -63,7 +63,30 @@ public class Rankings {
 					return 1;
 				return 0;
 			}
-			
+			else if (rank1==3)
+			{
+				int high1=0;
+				int high2=0;
+				if (swapper.getRank(hand1[0])==swapper.getRank(hand1[1]))
+				{
+					high1=swapper.getRank(hand1[0]);
+				}
+				else
+				{
+					high1=swapper.getRank(hand1[2]);
+				}
+				if (swapper.getRank(hand2[0])==swapper.getRank(hand2[1]))
+				{
+					high2=swapper.getRank(hand2[0]);
+				}
+				else
+				{
+					high2=swapper.getRank(hand2[2]);
+				}
+				if (high1<high2)
+					return 1;
+				return 0;
+			}
 		}
 		return 0;
 	}
