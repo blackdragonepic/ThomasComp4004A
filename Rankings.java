@@ -160,6 +160,42 @@ public class Rankings {
 					return 1;
 				return 0;
 			}
+			else if (rank1==6)
+			{
+				int[] cardRank1=new int[5];
+				cardRank1[0]=swapper.getRank(hand1[0]);
+				cardRank1[1]=swapper.getRank(hand1[1]);
+				cardRank1[2]=swapper.getRank(hand1[2]);
+				cardRank1[3]=swapper.getRank(hand1[3]);
+				cardRank1[4]=swapper.getRank(hand1[4]);
+				int[] cardRank2=new int[5];
+				cardRank2[0]=swapper.getRank(hand2[0]);
+				cardRank2[1]=swapper.getRank(hand2[1]);
+				cardRank2[2]=swapper.getRank(hand2[2]);
+				cardRank2[3]=swapper.getRank(hand2[3]);
+				cardRank2[4]=swapper.getRank(hand2[4]);
+				int[] sort1 =cardRank1.clone();
+				int[] sort2 =cardRank2.clone();
+				Arrays.sort(sort1);
+				Arrays.sort(sort2);
+				if (sort1[4]<sort2[4])
+					return 1;
+				else if (sort1[4]>sort2[4])
+					return 0;
+				int suit1=0;
+				int suit2=0;
+				for (int i=0;i<5;i++)
+				{
+					if (cardRank1[i]==sort1[4])
+						suit1=swapper.suitRank(hand1[i]);
+					if (cardRank2[i]==sort2[4])
+						suit2=swapper.suitRank(hand2[i]);
+				}
+				if (suit1<suit2)
+					return 1;
+				return 0;
+				
+			}
 		}
 		return 0;
 	}
