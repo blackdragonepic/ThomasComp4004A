@@ -300,6 +300,18 @@ public class handSwap {
 			return true;
 		return false;
 	}
+	public int suitRank(String s1)
+	{
+		char suit=s1.charAt(0);
+		if (suit=='S')
+			return 4;
+		if (suit=='H')
+			return 3;
+		if (suit=='D')
+			return 2;
+		return 1;
+	}
+	
 	public boolean oneAwayFlush(String s1, String s2, String s3, String s4, String s5){
 		char[] suit = new char[5];
 		suit[0]=s1.charAt(0);
