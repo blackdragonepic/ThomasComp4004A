@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Rankings {
 	public int getRank(String s1, String s2, String s3, String s4, String s5){
@@ -36,7 +37,31 @@ public class Rankings {
 			}
 			else if (rank1==2)
 			{
-				
+				int[] cardRank1=new int[5];
+				cardRank1[0]=swapper.getRank(hand1[0]);
+				cardRank1[1]=swapper.getRank(hand1[1]);
+				cardRank1[2]=swapper.getRank(hand1[2]);
+				cardRank1[3]=swapper.getRank(hand1[3]);
+				cardRank1[4]=swapper.getRank(hand1[4]);
+				int[] cardRank2=new int[5];
+				cardRank2[0]=swapper.getRank(hand2[0]);
+				cardRank2[1]=swapper.getRank(hand2[1]);
+				cardRank2[2]=swapper.getRank(hand2[2]);
+				cardRank2[3]=swapper.getRank(hand2[3]);
+				cardRank2[4]=swapper.getRank(hand2[4]);
+				Arrays.sort(cardRank1);
+				Arrays.sort(cardRank2);
+				if (cardRank1[4]<cardRank2[4])
+				{
+					return 1;
+				}
+				else if (cardRank1[4]>cardRank2[4])
+				{
+					return 0;
+				}
+				if (swapper.suitRank(hand1[0])<swapper.suitRank(hand2[0]))
+					return 1;
+				return 0;
 			}
 		}
 		return 0;
