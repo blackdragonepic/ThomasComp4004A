@@ -28,11 +28,15 @@ public class Rankings {
 		int rank1=getRank(hand1[0],hand1[1],hand1[2],hand1[3],hand1[4]);
 		int rank2=getRank(hand2[0],hand2[1],hand2[2],hand2[3],hand2[4]);
 		if (rank1==rank2) {
-			if (swapper.royalFlush(hand1[0],hand1[1],hand1[2],hand1[3],hand1[4]))
+			if (rank1==1)
 			{
 				if (swapper.suitRank(hand1[0])<swapper.suitRank(hand2[0]))
 					return 1;
 				return 0;
+			}
+			else if (rank1==2)
+			{
+				
 			}
 		}
 		return 0;
