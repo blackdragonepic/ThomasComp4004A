@@ -237,5 +237,13 @@ public class handtester extends TestCase {
 		hand1=new String[]{"H2","H4","H5","H6","H8"};//flush
 		hand2=new String[]{"S2","S4","S5","S6","S7"};
 		assertEquals(0,rank.Winner(hand1,hand2));
+		
+		hand1=new String[]{"H3","H4","H5","H6","D7"};//straight
+		hand2=new String[]{"S3","S4","S5","D6","S7"};
+		assertEquals(1,rank.Winner(hand1,hand2));
+		hand1=new String[]{"H4","H5","H6","H7","D8"};//straight
+		hand2=new String[]{"S3","S4","S5","D6","S7"};
+		assertEquals(0,rank.Winner(hand1,hand2));
+		
 	}
 }
