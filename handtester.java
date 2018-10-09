@@ -170,4 +170,20 @@ public class handtester extends TestCase {
 		
 	}
 
+	public void testRankings(){
+		Rankings ranker = new Rankings();
+		assertEquals(1, ranker.getRank("H10","HJ","HQ","HK","HA"));
+		assertEquals(3, ranker.getRank("C2","H2","D2","S2","C6"));
+		assertEquals(5, ranker.getRank("C2","C3","C4","C10","C9"));
+		
+		assertEquals(2, ranker.getRank("C2","C3","C4","C5","C6"));
+		assertEquals(6, ranker.getRank("C2","S3","H4","D5","C6"));
+		assertEquals(4, ranker.getRank("C2","S2","H2","D5","C5"));
+		
+
+		assertEquals(7, ranker.getRank("C2","S2","H2","D10","CQ"));
+		assertEquals(8, ranker.getRank("C2","S2","H10","D10","CQ"));
+
+		assertEquals(9, ranker.getRank("C2","S2","H11","D10","CQ"));
+	}
 }

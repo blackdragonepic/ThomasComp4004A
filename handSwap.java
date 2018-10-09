@@ -693,7 +693,7 @@ public class handSwap {
 		}
 		else if (oneAwayFullHouse(s1,s2,s3,s4,s5))
 		{
-			int two=0;
+
 			int pos1=-1;
 			int pos2=-1;
 			int[] ranks=new int[14];
@@ -800,7 +800,6 @@ public class handSwap {
 		}
 		else if (onePair(s1,s2,s3,s4,s5))
 		{
-			int two=0;
 			int look=-1;
 			int[] ranks=new int[14];
 			for (int i=0;i<5;i++)
