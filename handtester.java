@@ -200,4 +200,11 @@ public class handtester extends TestCase {
 		assertEquals(9, ranker.getRank("C2","S2","HJ","D10","CQ"));
 		assertEquals(10, ranker.getRank("C2","S3","HJ","D10","CQ"));
 	}
+	
+	public void testWinner(){
+		Rankings rank=new Rankings();
+		String[] hand1=new String[]{"H10","HJ","HQ","HK","HA"};
+		String[] hand2=new String[]{"S10","SJ","SQ","SK","HS"};
+		assertEquals(1,rank.Winner(hand1,hand2));
+	}
 }

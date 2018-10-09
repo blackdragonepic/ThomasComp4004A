@@ -22,4 +22,6 @@ public class Rankings {
 			return 9;
 		return 10;
 	}
+	
+	public int winner()
 }
