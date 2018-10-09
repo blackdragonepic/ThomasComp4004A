@@ -178,6 +178,15 @@ public class handtester extends TestCase {
 		
 	}
 	
+	public void testSuitRank()
+	{
+		handSwap swapper=new handSwap();
+		assertEquals(4, swapper.suitRank("S3"));
+		assertEquals(1, swapper.suitRank("C2"));
+		assertEquals(3, swapper.suitRank("H4"));
+		assertEquals(2, swapper.suitRank("D4"));
+	}
+	
 	public void testTwoPairs(){
 		handSwap swapper=new handSwap();
 		assertEquals(true, swapper.twoPairs("C2","S2","H10","D10","CQ"));
@@ -200,6 +209,7 @@ public class handtester extends TestCase {
 		assertEquals(9, ranker.getRank("C2","S2","HJ","D10","CQ"));
 		assertEquals(10, ranker.getRank("C2","S3","HJ","D10","CQ"));
 	}
+	
 	
 	public void testWinner(){
 		Rankings rank=new Rankings();
