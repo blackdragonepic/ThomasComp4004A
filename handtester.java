@@ -308,4 +308,9 @@ public class handtester extends TestCase {
 		
 		
 	}
+
+    public void testInde(){
+    	Rankings rank = new Rankings();
+    	assertEquals(rank.getRank("S10", "SJ", "SQ","SK","SA"),rank.getRank("H10", "HJ", "HQ","HK" ,"HA"));	
+    }
 }
