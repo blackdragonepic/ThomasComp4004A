@@ -776,7 +776,7 @@ public class handSwap {
 			}
 			for (int i=0;i<5;i++)
 			{
-				if (rank[i]!=pos1+1||rank[i]!=pos2+1)
+				if (rank[i]!=pos1+1&&rank[i]!=pos2+1)
 					output[i]=1;
 			}
 			return output;

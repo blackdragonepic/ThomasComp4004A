@@ -150,14 +150,23 @@ public class handtester extends TestCase {
 		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C10","C9")));
 		assertTrue(Arrays.equals(result, swapper.swap("C2","H2","D2","S2","C6")));
 		assertTrue(Arrays.equals(result, swapper.swap("H10","HJ","HQ","HK","HA")));
+		/*
+		 * 	
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("C2","S2","H2","D5","C5")));
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("C2","S3","H4","D5","C6")));
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("C2","C3","C4","C5","C6")));
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("C2","C3","C4","C10","C9")));
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("C2","H2","D2","S2","C6")));
+		assertTrue(Arrays.equals(new int[]{0,0,0,0,0}, swapper.swap("H10","HJ","HQ","HK","HA")));
+		 */
 		
 		result[3]=1;
 		//assertTrue(Arrays.equals(result, swapper.swap("C2","H2","D2","S3","C6")));//one away from 4 of a kind
 		result[3]=0;
 		result[4]=1;
 		assertTrue(Arrays.equals(result, swapper.swap("H10","HJ","HQ","HK","D7")));
-
-		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C5","H7")));//flush		
+;
+		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C10","H7")));//flush		
 		
 		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C4","C5","D7")));//straight flush
 		assertTrue(Arrays.equals(result, swapper.swap("C2","S3","H4","D5","C8")));//straight
@@ -165,14 +174,16 @@ public class handtester extends TestCase {
 		result[3]=1;
 
 		assertTrue(Arrays.equals(result, swapper.swap("C2","S2","H2","D5","C6")));//fullhouse
-
+		//assertTrue(Arrays.equals(new int[]{0,0,1,1,1}, swapper.swap("CQ","SK","H10","D5","C6")))
 		assertTrue(Arrays.equals(result, swapper.swap("C2","C3","C10","D7","H6")));
 		
 		assertTrue(Arrays.equals(result, swapper.swap("C2","S3","H4","D10","C9")));
 		result[2]=1;
 		assertTrue(Arrays.equals(result, swapper.swap("C2","S2","H10","D5","C6")));
 		assertTrue(Arrays.equals(result, swapper.swap("CQ","SK","H10","D5","C6")));
-		
+		result[2]=0;
+		result[3]=0;
+		assertTrue(Arrays.equals(result, swapper.swap("C2","D2", "S4", "H4", "H8")));//C2 D2 S4 H4 H8
 	}
 
 	public void testThreeOfAKind()
@@ -222,6 +233,8 @@ public class handtester extends TestCase {
 		String[] hand1=new String[]{"H10","HJ","HQ","HK","HA"};//royal flush
 		String[] hand2=new String[]{"S10","SJ","SQ","SK","SA"};
 		assertEquals(1,rank.Winner(hand1,hand2));
+		
+		
 		hand1=new String[]{"H3","H4","H5","H6","H7"};
 		hand2=new String[]{"S10","SJ","SQ","SK","S9"};
 		assertEquals(1,rank.Winner(hand1,hand2));
@@ -233,9 +246,12 @@ public class handtester extends TestCase {
 		hand2=new String[]{"H5","S5","D5","C5","D7"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		
+		
 		hand1=new String[]{"H3","S3","D3","C7","H7"};//fullhouse;
 		hand2=new String[]{"H5","S5","D5","C8","D8"};
 		assertEquals(1,rank.Winner(hand1,hand2));
+		
+		assertEquals(1,rank.Winner(new String[]{"H2","H4","H5","H6","H7"},new String[]{"S2","S4","S5","S6","S7"}));
 		
 		hand1=new String[]{"H2","H4","H5","H6","H7"};//flush
 		hand2=new String[]{"S2","S4","S5","S6","S7"};
@@ -278,12 +294,12 @@ public class handtester extends TestCase {
 		hand2=new String[]{"C3","D3","D9","C4","D7"};
 		assertEquals(0,rank.Winner(hand1,hand2));
 		
+		
+		
 		hand1=new String[]{"H3","S4","D6","C8","H7"};//high card;
 		hand2=new String[]{"H5","S3","D9","C4","D7"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		
-		hand1=new String[]{"H3","S4","D6","C8","H7"};//high card;
-		hand2=new String[]{"H5","S3","D9","C4","D7"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		hand1=new String[]{"H3","S4","D6","S9","H7"};//high card;
 		hand2=new String[]{"H5","S3","D9","C4","D7"};
