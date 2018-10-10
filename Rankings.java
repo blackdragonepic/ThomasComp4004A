@@ -198,11 +198,134 @@ public class Rankings {
 			}
 			else if (rank1==7)
 			{
-				
+				int[] cardRank1=new int[5];
+				cardRank1[0]=swapper.getRank(hand1[0]);
+				cardRank1[1]=swapper.getRank(hand1[1]);
+				cardRank1[2]=swapper.getRank(hand1[2]);
+				cardRank1[3]=swapper.getRank(hand1[3]);
+				cardRank1[4]=swapper.getRank(hand1[4]);
+				int[] cardRank2=new int[5];
+				cardRank2[0]=swapper.getRank(hand2[0]);
+				cardRank2[1]=swapper.getRank(hand2[1]);
+				cardRank2[2]=swapper.getRank(hand2[2]);
+				cardRank2[3]=swapper.getRank(hand2[3]);
+				cardRank2[4]=swapper.getRank(hand2[4]);
+				int[] ranks=new int[14];
+				int high1=0;
+				int high2=0;
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank1[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==3)
+					{
+						high1=i+1;
+					}
+					ranks[i]=0;
+				}
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank2[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==3)
+					{
+						high2=i+1;
+					}
+					ranks[i]=0;
+				}
+				if (high1<high2)
+					return 1;
+				return 0;
 			}
 			else if (rank1==8)
 			{
-				
+				int[] cardRank1=new int[5];
+				cardRank1[0]=swapper.getRank(hand1[0]);
+				cardRank1[1]=swapper.getRank(hand1[1]);
+				cardRank1[2]=swapper.getRank(hand1[2]);
+				cardRank1[3]=swapper.getRank(hand1[3]);
+				cardRank1[4]=swapper.getRank(hand1[4]);
+				int[] cardRank2=new int[5];
+				cardRank2[0]=swapper.getRank(hand2[0]);
+				cardRank2[1]=swapper.getRank(hand2[1]);
+				cardRank2[2]=swapper.getRank(hand2[2]);
+				cardRank2[3]=swapper.getRank(hand2[3]);
+				cardRank2[4]=swapper.getRank(hand2[4]);
+				int[] ranks=new int[14];
+				int high1=-1;
+				int low1=-1;
+				int high2=-1;
+				int low2=-1;
+				int mid1=0;
+				int mid2=0;
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank1[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==2)
+					{
+						if (high1<i+1)
+						{
+							low1=high1;
+							high1=i+1;
+						}
+						else
+							low1=i+1;
+					}
+					if (ranks[i]==1)
+						mid1=i+1;
+					ranks[i]=0;
+				}
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank2[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==2)
+					{
+						if (high2<i+1)
+						{
+							low2=high2;
+							high2=i+1;
+						}
+						else
+							low2=i+1;
+					}
+					if (ranks[i]==1)
+						mid2=i+1;
+					ranks[i]=0;
+				}
+				if (high1<high2)
+					return 1;
+				if (high1>high2)
+					return 0;
+				if (low1<low2)
+					return 1;
+				if (low1>low2)
+					return 0;
+				if (mid1<mid2)
+					return 1;
+				if (mid1>mid2)
+					return 0;
+				int index1=0;
+				int index2=0;
+				for (int i=0;i<5;i++)
+				{
+					if(swapper.getRank(hand1[i])==mid1)
+						index1=i;
+					if(swapper.getRank(hand2[i])==mid2)
+						index2=i;
+				}
+				if (swapper.suitRank(hand1[index1])<swapper.suitRank(hand1[index2]))
+					return 1;
+				return 0;
 			}
 		}
 		return 0;
