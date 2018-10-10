@@ -23,7 +23,7 @@ public class Rankings {
 			return 9;
 		return 10;
 	}
-	
+
 	public int Winner(String[] hand1, String[] hand2){
 		handSwap swapper =new handSwap();
 		int rank1=getRank(hand1[0],hand1[1],hand1[2],hand1[3],hand1[4]);
@@ -194,7 +194,7 @@ public class Rankings {
 				if (suit1<suit2)
 					return 1;
 				return 0;
-				
+
 			}
 			else if (rank1==7)
 			{
@@ -325,6 +325,80 @@ public class Rankings {
 				}
 				if (swapper.suitRank(hand1[index1])<swapper.suitRank(hand1[index2]))
 					return 1;
+				return 0;
+			}
+			else if (rank1==9)
+			{
+				int[] cardRank1=new int[5];
+				cardRank1[0]=swapper.getRank(hand1[0]);
+				cardRank1[1]=swapper.getRank(hand1[1]);
+				cardRank1[2]=swapper.getRank(hand1[2]);
+				cardRank1[3]=swapper.getRank(hand1[3]);
+				cardRank1[4]=swapper.getRank(hand1[4]);
+				int[] cardRank2=new int[5];
+				cardRank2[0]=swapper.getRank(hand2[0]);
+				cardRank2[1]=swapper.getRank(hand2[1]);
+				cardRank2[2]=swapper.getRank(hand2[2]);
+				cardRank2[3]=swapper.getRank(hand2[3]);
+				cardRank2[4]=swapper.getRank(hand2[4]);
+				int[] ranks=new int[14];
+				int high1=0;
+				int high2=0;
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank1[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==2)
+					{
+						high1=i+1;
+					}
+					ranks[i]=0;
+				}
+				//hand2
+				for (int i=0;i<5;i++)
+				{
+					ranks[cardRank2[i]-1]++;
+				}
+				for (int i=0;i<14;i++)
+				{
+					if (ranks[i]==2)
+					{
+						high2=i+1;
+					}
+					ranks[i]=0;
+				}
+				if (high1<high2)
+					return 1;
+				if (high1>high2)
+					return 0;
+				int next1=-1;
+				int next2=-1;
+				int pos1=-1; 
+				int pos2=-1;
+				for (int i=0;i<5;i++)
+				{
+					if (cardRank1[i]!=high1)
+					{
+						if (cardRank1[i]>next1)
+							pos1=i;
+						next1=cardRank1[i];
+					}
+					
+					if (cardRank2[i]!=high2)
+					{
+						if (cardRank2[i]>next2)
+							pos2=i;
+						next2=cardRank2[i];
+					}
+				}
+				if (next1<next2)
+					return 1;
+				if (next1>next2)
+					return 0;
+				if (swapper.suitRank(hand1[pos1])<swapper.suitRank(hand2[pos2]))
+					return 1;	
 				return 0;
 			}
 		}
