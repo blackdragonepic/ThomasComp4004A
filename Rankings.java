@@ -196,6 +196,14 @@ public class Rankings {
 				return 0;
 				
 			}
+			else if (rank1==7)
+			{
+				
+			}
+			else if (rank1==8)
+			{
+				
+			}
 		}
 		return 0;
 	}
