@@ -284,5 +284,6 @@ public class handtester extends TestCase {
 		assertEquals(0,rank.Winner(hand1,hand2));
 		
 		
+		
 	}
 }
