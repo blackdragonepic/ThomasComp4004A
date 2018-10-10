@@ -259,7 +259,7 @@ public class handtester extends TestCase {
 		hand2=new String[]{"H5","S5","S6","H6","D7"};
 		assertEquals(1,rank.Winner(hand1,hand2));
 		hand1=new String[]{"H3","S3","D6","C6","H7"};//2 pairs;
-		hand2=new String[]{"C3","D3","S6","H6","D7"};
+		hand2=new String[]{"C3","D3","S6","H6","D7"};//
 		assertEquals(0,rank.Winner(hand1,hand2));
 		
 	}
