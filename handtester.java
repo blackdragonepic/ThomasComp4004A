@@ -9,6 +9,7 @@ public class handtester extends TestCase {
 		handSwap swapper = new handSwap();
 		
 		assertEquals(true, swapper.fullHouse("C2","S2","H2","D5","C5"));
+		assertEquals(true, swapper.fullHouse("C2","S2","C5","D5","H2"));
 		assertEquals(false, swapper.fullHouse("C2","S6","H2","D5","C2"));
 	}
 	
@@ -16,6 +17,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.straight("C2","S3","H4","D5","C6"));
+		assertEquals(true, swapper.straight("C2","S3","H4","C6","D5"));
 		assertEquals(false, swapper.straight("C2","S3","H4","D5","C7"));
 	}
 	
@@ -23,6 +25,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.straightFlush("C2","C3","C4","C5","C6"));
+		assertEquals(true, swapper.straightFlush("C2","C4","C3","C6","C5"));
 		assertEquals(false, swapper.straightFlush("C2","S3","H4","D5","C7"));
 		assertEquals(false, swapper.straightFlush("C2","S3","H4","D5","C6"));
 	}
@@ -38,6 +41,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper = new handSwap();
 		assertEquals(true, swapper.fourOfAKind("C2","H2","D2","S2","C6"));
+		assertEquals(true, swapper.fourOfAKind("C2","H2","D2","C6","S2"));
 		assertEquals(false, swapper.fourOfAKind("C2","S3","H4","D5","C7"));
 	}
 	public void testGetRank()
@@ -58,6 +62,7 @@ public class handtester extends TestCase {
 		assertEquals(false, swapper.royalFlush("C2","C3","C4","C5","C6"));
 		assertEquals(false, swapper.royalFlush("C10","SJ","HQ","DK","CA"));
 		assertEquals(true, swapper.royalFlush("H10","HJ","HQ","HK","HA"));
+		assertEquals(true, swapper.royalFlush("HJ","H10","HK","HQ","HA"));
 	}
 	
 	public void testOneAwayFourOfAKind()
@@ -174,6 +179,7 @@ public class handtester extends TestCase {
 	{
 		handSwap swapper=new handSwap();
 		assertEquals(true, swapper.threeOfAKind("C2","S2","H2","D10","CQ"));
+		assertEquals(false, swapper.threeOfAKind("C2","S2","H2","D2","CQ"));
 		assertEquals(false, swapper.threeOfAKind("C2","S2","H3","D10","CQ"));
 		
 	}
