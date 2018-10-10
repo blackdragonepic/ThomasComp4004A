@@ -735,7 +735,6 @@ public class handSwap {
 				check=0;
 			else 
 				check=4;
-			output[check]=1;
 			for (int i =0;i<5;i++)
 			{
 				if (rank[i]==rank2[check])
